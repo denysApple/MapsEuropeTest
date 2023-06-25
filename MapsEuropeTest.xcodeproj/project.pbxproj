@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		BCD870EE2A46FAAF0070459F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870ED2A46FAAF0070459F /* AppDelegate.m */; };
 		BCD870F12A46FAAF0070459F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870F02A46FAAF0070459F /* SceneDelegate.m */; };
-		BCD870F42A46FAAF0070459F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870F32A46FAAF0070459F /* ViewController.m */; };
+		BCD870F42A46FAAF0070459F /* ListMapsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870F32A46FAAF0070459F /* ListMapsController.m */; };
 		BCD870F72A46FAAF0070459F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD870F52A46FAAF0070459F /* Main.storyboard */; };
 		BCD870F92A46FAB00070459F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD870F82A46FAB00070459F /* Assets.xcassets */; };
 		BCD870FC2A46FAB00070459F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD870FA2A46FAB00070459F /* LaunchScreen.storyboard */; };
 		BCD870FF2A46FAB00070459F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870FE2A46FAB00070459F /* main.m */; };
+		BCD871082A4707BE0070459F /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD871072A4707BE0070459F /* NetworkManager.m */; };
+		BCD8710D2A470C810070459F /* UIColors.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD8710C2A470C810070459F /* UIColors.m */; };
+		BCD8710F2A4710D20070459F /* MapsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD8710E2A4710D20070459F /* MapsManager.m */; };
+		BCD871122A4711460070459F /* regions.xml in Resources */ = {isa = PBXBuildFile; fileRef = BCD871112A4711460070459F /* regions.xml */; };
+		BCD871192A486FA20070459F /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD871182A486FA20070459F /* Region.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +27,22 @@
 		BCD870ED2A46FAAF0070459F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BCD870EF2A46FAAF0070459F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		BCD870F02A46FAAF0070459F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		BCD870F22A46FAAF0070459F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BCD870F32A46FAAF0070459F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BCD870F22A46FAAF0070459F /* ListMapsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListMapsController.h; sourceTree = "<group>"; };
+		BCD870F32A46FAAF0070459F /* ListMapsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListMapsController.m; sourceTree = "<group>"; };
 		BCD870F62A46FAAF0070459F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCD870F82A46FAB00070459F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD870FB2A46FAB00070459F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCD870FD2A46FAB00070459F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCD870FE2A46FAB00070459F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BCD871072A4707BE0070459F /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		BCD8710A2A4708190070459F /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		BCD8710B2A470C760070459F /* UIColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIColors.h; sourceTree = "<group>"; };
+		BCD8710C2A470C810070459F /* UIColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIColors.m; sourceTree = "<group>"; };
+		BCD8710E2A4710D20070459F /* MapsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsManager.m; sourceTree = "<group>"; };
+		BCD871112A4711460070459F /* regions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = regions.xml; sourceTree = "<group>"; };
+		BCD871152A4711DC0070459F /* MapsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsManager.h; sourceTree = "<group>"; };
+		BCD871172A486F890070459F /* Region.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		BCD871182A486FA20070459F /* Region.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,19 +75,60 @@
 		BCD870EB2A46FAAF0070459F /* MapsEuropeTest */ = {
 			isa = PBXGroup;
 			children = (
+				BCD871162A486F810070459F /* Models */,
+				BCD870FD2A46FAB00070459F /* Info.plist */,
+				BCD871092A4707C20070459F /* Services */,
+				BCD871062A46FE020070459F /* Resources */,
+				BCD871052A46FDF90070459F /* UI */,
 				BCD870EC2A46FAAF0070459F /* AppDelegate.h */,
 				BCD870ED2A46FAAF0070459F /* AppDelegate.m */,
 				BCD870EF2A46FAAF0070459F /* SceneDelegate.h */,
 				BCD870F02A46FAAF0070459F /* SceneDelegate.m */,
-				BCD870F22A46FAAF0070459F /* ViewController.h */,
-				BCD870F32A46FAAF0070459F /* ViewController.m */,
-				BCD870F52A46FAAF0070459F /* Main.storyboard */,
-				BCD870F82A46FAB00070459F /* Assets.xcassets */,
-				BCD870FA2A46FAB00070459F /* LaunchScreen.storyboard */,
-				BCD870FD2A46FAB00070459F /* Info.plist */,
 				BCD870FE2A46FAB00070459F /* main.m */,
 			);
 			path = MapsEuropeTest;
+			sourceTree = "<group>";
+		};
+		BCD871052A46FDF90070459F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BCD870F22A46FAAF0070459F /* ListMapsController.h */,
+				BCD870F32A46FAAF0070459F /* ListMapsController.m */,
+				BCD870F52A46FAAF0070459F /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BCD871062A46FE020070459F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BCD871112A4711460070459F /* regions.xml */,
+				BCD870F82A46FAB00070459F /* Assets.xcassets */,
+				BCD870FA2A46FAB00070459F /* LaunchScreen.storyboard */,
+				BCD8710B2A470C760070459F /* UIColors.h */,
+				BCD8710C2A470C810070459F /* UIColors.m */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BCD871092A4707C20070459F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BCD871072A4707BE0070459F /* NetworkManager.m */,
+				BCD8710A2A4708190070459F /* NetworkManager.h */,
+				BCD8710E2A4710D20070459F /* MapsManager.m */,
+				BCD871152A4711DC0070459F /* MapsManager.h */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BCD871162A486F810070459F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BCD871172A486F890070459F /* Region.h */,
+				BCD871182A486FA20070459F /* Region.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD870FC2A46FAB00070459F /* LaunchScreen.storyboard in Resources */,
+				BCD871122A4711460070459F /* regions.xml in Resources */,
 				BCD870F92A46FAB00070459F /* Assets.xcassets in Resources */,
 				BCD870F72A46FAAF0070459F /* Main.storyboard in Resources */,
 			);
@@ -146,10 +202,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCD870F42A46FAAF0070459F /* ViewController.m in Sources */,
+				BCD870F42A46FAAF0070459F /* ListMapsController.m in Sources */,
+				BCD8710D2A470C810070459F /* UIColors.m in Sources */,
 				BCD870EE2A46FAAF0070459F /* AppDelegate.m in Sources */,
 				BCD870FF2A46FAB00070459F /* main.m in Sources */,
+				BCD871082A4707BE0070459F /* NetworkManager.m in Sources */,
+				BCD8710F2A4710D20070459F /* MapsManager.m in Sources */,
 				BCD870F12A46FAAF0070459F /* SceneDelegate.m in Sources */,
+				BCD871192A486FA20070459F /* Region.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
