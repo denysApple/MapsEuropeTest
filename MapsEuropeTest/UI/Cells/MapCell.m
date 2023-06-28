@@ -16,8 +16,9 @@ NSString * const MapCellIdentifier = @"MapCellIdentifier";
 
 - (instancetype)initWithRegion:(Region *)region networkManager:(NetworkManager *)networkManager {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MapCellIdentifier];
-    _selectedRegion = region;
     if (self) {
+        _selectedRegion = region;
+        _networkManager = networkManager;
         [self setupUI];
     }
     [self updateUI:region];
@@ -39,13 +40,13 @@ NSString * const MapCellIdentifier = @"MapCellIdentifier";
 
     [self.contentView addSubview:self.progressView];
     self.progressView.clipsToBounds = true;
-    self.progressView.layer.cornerRadius = 13;
+    self.progressView.layer.cornerRadius = 2;
     
     [NSLayoutConstraint activateConstraints:@[
-        [self.progressView.topAnchor constraintEqualToAnchor:self.contentView.safeAreaLayoutGuide.topAnchor constant:25],
-        [self.progressView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:20],
+        [self.progressView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor],
+        [self.progressView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:25],
         [self.progressView.heightAnchor constraintEqualToConstant:10],
-        [self.progressView.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-20]
+        [self.progressView.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-25]
     ]];
     [self changeStateIsHidden:YES];
     
@@ -81,14 +82,15 @@ NSString * const MapCellIdentifier = @"MapCellIdentifier";
 
 - (void)buttonClicked:(UIButton *)sender {
     NSURL *url = _selectedRegion.url;
-    if (url != nil) {
+    if (url != nil && _networkManager.isBusy == false) {
+        [self changeStateIsHidden:NO];
         NSLog(@"Clicked to download %@", _selectedRegion.url);
         [_networkManager downloadFileFromURL:url withProgress:^(double progress) {
             // This block is called to update the progress of the download.
             // 'progress' is a value between 0.0 and 1.0 representing the progress of the download.
             // You can use this to update a progress bar or other UI element.
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self changeStateIsHidden:YES];
+                [self changeStateIsHidden:NO];
                 NSLog(@"progress %f", progress);
                 self.progressView.progress = progress;
             });
@@ -96,7 +98,7 @@ NSString * const MapCellIdentifier = @"MapCellIdentifier";
             // This block is called when the download is complete.
             // 'location' is the URL where the downloaded file can be found.
             // 'error' is an NSError object that will be non-nil if an error occurred.
-            [self changeStateIsHidden:NO];
+            [self changeStateIsHidden:YES];
             if (error) {
                 NSLog(@"Download failed with error: %@", error.localizedDescription);
             } else {

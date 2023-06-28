@@ -24,6 +24,7 @@
 }
 
 - (void)downloadFileFromURL:(NSURL *)url withProgress:(void(^)(double progress))progressBlock completion:(void(^)(NSURL *location, NSError *error))completionBlock {
+    self.isBusy = true;
     self.progressBlock = progressBlock;
     self.completionBlock = completionBlock;
 
@@ -48,6 +49,7 @@
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
     if (self.completionBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.isBusy = false;
             self.completionBlock(location, nil);
         });
     }

@@ -6,6 +6,7 @@
 
 @property (nonatomic, strong) NSURLSession *session;
 
+@property (nonatomic, assign) BOOL isBusy;
 @property (nonatomic, copy) void(^progressBlock)(double progress);
 @property (nonatomic, copy) void(^completionBlock)(NSURL *location, NSError *error);
 

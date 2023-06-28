@@ -32,6 +32,7 @@
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes;
 - (void)addSubregion:(Region *)region;
+- (void)mergeWithParent:(Region *)parentRegion;
 
 - (NSURL *)url;
 

@@ -31,35 +31,22 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     if ([elementName isEqualToString:@"region"]) {
         Region *region = [[Region alloc] initWithAttributes:attributeDict];
-        if (self.parentRegion) {
-            int lengthSuff = (unsigned int)region.downloadSuffix.length;
-            int lengthPre = (unsigned int)region.downloadPrefix.length;
-            
-            if (lengthPre == 0) {
-                if (self.parentRegion.downloadPrefix.length > 0) {
-                    region.downloadPrefix = self.parentRegion.downloadPrefix;
-                } else if (self.parentRegion.innerDownloadPrefix.length > 0) {
-                    region.downloadPrefix = self.parentRegion.innerDownloadPrefix;
-                }
-            }
-            
-            if (lengthSuff == 0) {
-                if (self.parentRegion.downloadSuffix.length > 0) {
-                    region.downloadSuffix = self.parentRegion.downloadSuffix;
-                } else if (self.parentRegion.innerDownloadSuffix.length > 0) {
-                    region.downloadSuffix = self.parentRegion.innerDownloadSuffix;
-                }
-            }
-            
+        if (self.continentRegion) {
+            [region mergeWithParent:self.continentRegion];
+        }
+        [region mergeWithParent:self.parentRegion];
+        if (self.parentRegion && region.polyExtract == nil) {
             [self.parentRegion addSubregion:region];
         } else {
-            if (![self.regions containsObject:region]) {
+            if (![region.type isEqualToString:@"continent"] && ![self.regions containsObject:region]) {
                 [self.regions addObject:region];
             }
         }
         
         if (![attributeDict[@"type"] isEqualToString:@"continent"] || region.polyExtract.length == 0) {
             self.parentRegion = region;
+        } else if ([region.type isEqualToString:@"continent"]) {
+            self.continentRegion = region;
         }
     }
 }

@@ -37,16 +37,16 @@
         _downloadPrefix = attributes[@"download_prefix"];
         _downloadSuffix = attributes[@"download_suffix"];
         if ([_innerDownloadPrefix isEqualToString:@"$name"]) {
-            _innerDownloadPrefix = attributes[@"name"];;
+            _innerDownloadPrefix = attributes[@"name"];
         }
         if ([_innerDownloadSuffix isEqualToString:@"$name"]) {
-            _innerDownloadSuffix = attributes[@"name"];;
+            _innerDownloadSuffix = attributes[@"name"];
         }
         if ([_downloadPrefix isEqualToString:@"$name"]) {
-            _downloadPrefix = attributes[@"name"];;
+            _downloadPrefix = attributes[@"name"];
         }
         if ([_downloadSuffix isEqualToString:@"$name"]) {
-            _downloadSuffix = attributes[@"name"];;
+            _downloadSuffix = attributes[@"name"];
         }
         
         _boundary = attributes[@"boundary"];
@@ -67,6 +67,15 @@
     }
 }
 
+- (void)mergeWithParent:(Region *)parentRegion {
+    if (_downloadPrefix == nil && parentRegion.innerDownloadPrefix.length > 0) {
+        _downloadPrefix = parentRegion.innerDownloadPrefix;
+    }
+    if (_downloadSuffix == nil && parentRegion.innerDownloadSuffix.length > 0) {
+        _downloadSuffix = parentRegion.innerDownloadSuffix;
+    }
+}
+
 - (NSURL *)url {
     NSString *mapName = @"";
     NSString *prefix = @"";
@@ -81,7 +90,7 @@
     } else if (_innerDownloadSuffix != nil && _innerDownloadSuffix != _name) {
         suffix = _innerDownloadSuffix;
     }
-    if (prefix > 0 && suffix.length > 0) {
+    if (prefix.length > 0 && suffix.length > 0) {
         mapName = [NSString stringWithFormat:@"%@_%@_%@", prefix, _name, suffix];
     } else if (prefix.length > 0) {
         mapName = [NSString stringWithFormat:@"%@_%@", prefix, _name];

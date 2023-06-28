@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSMutableArray<Region *> *regions;
 @property (nonatomic, strong) Region *parentRegion;
+@property (nonatomic, strong) Region *continentRegion;
 - (void)fetchMaps;
 
 @end
