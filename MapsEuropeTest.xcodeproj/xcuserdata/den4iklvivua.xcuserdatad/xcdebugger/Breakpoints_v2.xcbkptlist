@@ -7,64 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3C713486-8244-47B3-B1E3-80787D3D766C"
+            uuid = "ECE7B176-88B3-437A-92D9-021EE0B6A205"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapsEuropeTest/Models/Region.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-initWithAttributes:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3C713486-8244-47B3-B1E3-80787D3D766C - 6c3a0cd002db54f9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[Region initWithAttributes:]"
-                  moduleName = "MapsEuropeTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/den4iklvivua/Desktop/projects/MapsEuropeTest/MapsEuropeTest/Models/Region.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "800">
-               </Location>
-               <Location
-                  uuid = "3C713486-8244-47B3-B1E3-80787D3D766C - 6c3a0cd002db54d8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[Region initWithAttributes:]"
-                  moduleName = "MapsEuropeTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/den4iklvivua/Desktop/projects/MapsEuropeTest/MapsEuropeTest/Models/Region.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "832">
-               </Location>
-               <Location
-                  uuid = "3C713486-8244-47B3-B1E3-80787D3D766C - 6c3a0cd002db54d8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[Region initWithAttributes:]"
-                  moduleName = "MapsEuropeTest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/den4iklvivua/Desktop/projects/MapsEuropeTest/MapsEuropeTest/Models/Region.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "808">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

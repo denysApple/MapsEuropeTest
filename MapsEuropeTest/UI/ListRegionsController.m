@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIColors.h"
 #import "CapitalizeFirstLetter.h"
+#import "MapCell.h"
 
 
 @implementation ListRegionsController
@@ -47,17 +48,29 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"CellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
+    MapCell *cell = [tableView dequeueReusableCellWithIdentifier:MapCellIdentifier];
+    Region *region = self.selectedRegion.subregions[indexPath.row];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[MapCell alloc] initWithRegion:region];
     }
-    NSString *regionName = self.selectedRegion.subregions[indexPath.row].name;
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [regionName stringByCapitalizingFirstLetter]];
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    // Initialize the view controller you want to present
+    Region *region = self.selectedRegion.subregions[indexPath.row];
+    if (region.subregions.count > 0) {
+        ListRegionsController *viewController = [[ListRegionsController alloc] initWithRegion:region];
+
+        // Optionally set properties of the view controller here
+
+        // Push it onto the navigation stack (or present it modally)
+        [self.navigationController pushViewController:viewController animated:YES];
+        // If you're using modal presentation:
+        // [self presentViewController:yourViewController animated:YES completion:nil];
+    }
 }
 
 @end

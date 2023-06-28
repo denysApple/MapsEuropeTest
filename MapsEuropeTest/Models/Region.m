@@ -13,6 +13,7 @@
 - (instancetype)initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
     if (self) {
+        _source = attributes;
         _type = attributes[@"type"];
         _translate = attributes[@"translate"];
         if (_translate != NULL && [_translate rangeOfString:@"en="].location != NSNotFound) {
@@ -32,16 +33,24 @@
         _innerDownloadSuffix = attributes[@"inner_download_suffix"];
         _boundary = attributes[@"boundary"];
         _polyExtract = attributes[@"poly_extract"];
+        _lang = attributes[@"lang"];
+        _wiki = attributes[@"wiki"];
+        _roads = attributes[@"roads"];
         _subregions = [NSMutableArray new];
     } else {
         NSLog(@"%@", attributes);
-        int* new = 1;
     }
     return self;
 }
 
 - (void)addSubregion:(Region *)region {
-    [self.subregions addObject:region];
+    if (![self.subregions containsObject:region]) {
+        [self.subregions addObject:region];
+    }
+}
+
+- (BOOL)isRelation {
+    return (_translate != NULL && [_translate rangeOfString:@"entity=relation"].location != NSNotFound);
 }
 
 @end

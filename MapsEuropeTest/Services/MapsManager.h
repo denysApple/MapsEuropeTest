@@ -11,6 +11,7 @@
 @interface MapsManager : NSObject<NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSMutableArray<Region *> *regions;
+@property (nonatomic, strong) NSMutableArray<Region *> *filteredRegions;
 @property (nonatomic, strong) Region *currentRegion;
 - (void)fetchMaps;
 
