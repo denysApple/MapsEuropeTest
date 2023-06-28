@@ -1,5 +1,5 @@
 //
-//  NetworkManager.m
+//  NetworkService.m
 //  MapsEuropeTest
 //
 //  Created by Denys on 24.06.2023.
@@ -8,18 +8,16 @@
 #import <Foundation/Foundation.h>
 #import "NetworkManager.h"
 
-@implementation NetworkService
+@implementation NetworkManager
 
 - (instancetype)init {
     if (self = [super init]) {
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         
-        // Create a queue to handle callbacks
         NSOperationQueue *delegateQueue = [[NSOperationQueue alloc] init];
         delegateQueue.name = @"com.mapsEuropeTestTask.networkqueue";
         delegateQueue.maxConcurrentOperationCount = 1;
         
-        // Use the queue for the session
         self.session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:delegateQueue];
     }
     return self;

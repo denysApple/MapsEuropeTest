@@ -14,10 +14,11 @@
 
 @implementation ListRegionsController
 
-- (instancetype)initWithRegion:(Region *)region {
+- (instancetype)initWithRegion:(Region *)region networkManager:(NetworkManager *)networkManager{
     self = [super init];
     if (self) {
-        self.selectedRegion = region;
+        _selectedRegion = region;
+        _networkManager = networkManager;
     }
     self.tableView = [[UITableView alloc] initWithFrame: self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
@@ -51,25 +52,17 @@
     MapCell *cell = [tableView dequeueReusableCellWithIdentifier:MapCellIdentifier];
     Region *region = self.selectedRegion.subregions[indexPath.row];
     if (cell == nil) {
-        cell = [[MapCell alloc] initWithRegion:region];
+        cell = [[MapCell alloc] initWithRegion:region networkManager:_networkManager];
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    // Initialize the view controller you want to present
     Region *region = self.selectedRegion.subregions[indexPath.row];
     if (region.subregions.count > 0) {
-        ListRegionsController *viewController = [[ListRegionsController alloc] initWithRegion:region];
-
-        // Optionally set properties of the view controller here
-
-        // Push it onto the navigation stack (or present it modally)
+        ListRegionsController *viewController = [[ListRegionsController alloc] initWithRegion:region networkManager:_networkManager];
         [self.navigationController pushViewController:viewController animated:YES];
-        // If you're using modal presentation:
-        // [self presentViewController:yourViewController animated:YES completion:nil];
     }
 }
 

@@ -20,6 +20,7 @@ UILabel *progressRightLabel;
 
 - (instancetype)init {
     self = [super init];
+    self.networkManager = [[NetworkManager alloc] init];
     self.view.backgroundColor = UIColor.whiteColor;
     self.tableView = [[UITableView alloc] initWithFrame: self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
@@ -136,17 +137,11 @@ UILabel *progressRightLabel;
     return self.mapsManager.regions.count;
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    NSString *name = self.mapsManager.regions[section].displayName;
-//    NSLog(@"header: %@", name);
-//    return [name stringByCapitalizingFirstLetter];
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MapCell *cell = [tableView dequeueReusableCellWithIdentifier:MapCellIdentifier];
     Region *region = self.mapsManager.regions[indexPath.row];
     if (cell == nil) {
-        cell = [[MapCell alloc] initWithRegion:region];
+        cell = [[MapCell alloc] initWithRegion:region networkManager:_networkManager];
     } else {
         [cell updateUI:region];
     }
@@ -157,14 +152,8 @@ UILabel *progressRightLabel;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Region *region = self.mapsManager.regions[indexPath.row];
     if (region.subregions.count > 0) {
-        ListRegionsController *viewController = [[ListRegionsController alloc] initWithRegion:region];
-
-        // Optionally set properties of the view controller here
-
-        // Push it onto the navigation stack (or present it modally)
+        ListRegionsController *viewController = [[ListRegionsController alloc] initWithRegion:region networkManager:_networkManager];
         [self.navigationController pushViewController:viewController animated:YES];
-        // If you're using modal presentation:
-        // [self presentViewController:yourViewController animated:YES completion:nil];
     }
 }
 
