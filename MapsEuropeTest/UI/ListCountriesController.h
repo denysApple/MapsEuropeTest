@@ -8,9 +8,10 @@
 #import <UIKit/UIKit.h>
 #import "MapsManager.h"
 
-@interface ListMapsController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ListCountriesController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIProgressView *progressView;
 @property (nonatomic, strong) MapsManager *mapsManager;
 
 @end

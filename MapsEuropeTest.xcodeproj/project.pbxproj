@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC5C099E2A4C1F4A004D2D68 /* CapitalizeFirstLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C099D2A4C1F4A004D2D68 /* CapitalizeFirstLetter.m */; };
+		BC5C09A12A4C2065004D2D68 /* ListRegionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C09A02A4C2065004D2D68 /* ListRegionsController.m */; };
 		BCD870EE2A46FAAF0070459F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870ED2A46FAAF0070459F /* AppDelegate.m */; };
 		BCD870F12A46FAAF0070459F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870F02A46FAAF0070459F /* SceneDelegate.m */; };
-		BCD870F42A46FAAF0070459F /* ListMapsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870F32A46FAAF0070459F /* ListMapsController.m */; };
+		BCD870F42A46FAAF0070459F /* ListCountriesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870F32A46FAAF0070459F /* ListCountriesController.m */; };
 		BCD870F72A46FAAF0070459F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD870F52A46FAAF0070459F /* Main.storyboard */; };
 		BCD870F92A46FAB00070459F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD870F82A46FAB00070459F /* Assets.xcassets */; };
 		BCD870FC2A46FAB00070459F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD870FA2A46FAB00070459F /* LaunchScreen.storyboard */; };
@@ -22,13 +24,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC5C099C2A4C1F32004D2D68 /* CapitalizeFirstLetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CapitalizeFirstLetter.h; sourceTree = "<group>"; };
+		BC5C099D2A4C1F4A004D2D68 /* CapitalizeFirstLetter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CapitalizeFirstLetter.m; sourceTree = "<group>"; };
+		BC5C099F2A4C2043004D2D68 /* ListRegionsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListRegionsController.h; sourceTree = "<group>"; };
+		BC5C09A02A4C2065004D2D68 /* ListRegionsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListRegionsController.m; sourceTree = "<group>"; };
 		BCD870E92A46FAAF0070459F /* MapsEuropeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapsEuropeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD870EC2A46FAAF0070459F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BCD870ED2A46FAAF0070459F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BCD870EF2A46FAAF0070459F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		BCD870F02A46FAAF0070459F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		BCD870F22A46FAAF0070459F /* ListMapsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListMapsController.h; sourceTree = "<group>"; };
-		BCD870F32A46FAAF0070459F /* ListMapsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListMapsController.m; sourceTree = "<group>"; };
+		BCD870F22A46FAAF0070459F /* ListCountriesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListCountriesController.h; sourceTree = "<group>"; };
+		BCD870F32A46FAAF0070459F /* ListCountriesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListCountriesController.m; sourceTree = "<group>"; };
 		BCD870F62A46FAAF0070459F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCD870F82A46FAB00070459F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD870FB2A46FAB00070459F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC5C099B2A4C1F21004D2D68 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BC5C099C2A4C1F32004D2D68 /* CapitalizeFirstLetter.h */,
+				BC5C099D2A4C1F4A004D2D68 /* CapitalizeFirstLetter.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BCD870E02A46FAAF0070459F = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +90,7 @@
 		BCD870EB2A46FAAF0070459F /* MapsEuropeTest */ = {
 			isa = PBXGroup;
 			children = (
+				BC5C099B2A4C1F21004D2D68 /* Extensions */,
 				BCD871162A486F810070459F /* Models */,
 				BCD870FD2A46FAB00070459F /* Info.plist */,
 				BCD871092A4707C20070459F /* Services */,
@@ -92,9 +108,11 @@
 		BCD871052A46FDF90070459F /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				BCD870F22A46FAAF0070459F /* ListMapsController.h */,
-				BCD870F32A46FAAF0070459F /* ListMapsController.m */,
+				BCD870F22A46FAAF0070459F /* ListCountriesController.h */,
+				BCD870F32A46FAAF0070459F /* ListCountriesController.m */,
 				BCD870F52A46FAAF0070459F /* Main.storyboard */,
+				BC5C099F2A4C2043004D2D68 /* ListRegionsController.h */,
+				BC5C09A02A4C2065004D2D68 /* ListRegionsController.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -202,14 +220,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCD870F42A46FAAF0070459F /* ListMapsController.m in Sources */,
+				BCD870F42A46FAAF0070459F /* ListCountriesController.m in Sources */,
 				BCD8710D2A470C810070459F /* UIColors.m in Sources */,
 				BCD870EE2A46FAAF0070459F /* AppDelegate.m in Sources */,
+				BC5C099E2A4C1F4A004D2D68 /* CapitalizeFirstLetter.m in Sources */,
 				BCD870FF2A46FAB00070459F /* main.m in Sources */,
 				BCD871082A4707BE0070459F /* NetworkManager.m in Sources */,
 				BCD8710F2A4710D20070459F /* MapsManager.m in Sources */,
 				BCD870F12A46FAAF0070459F /* SceneDelegate.m in Sources */,
 				BCD871192A486FA20070459F /* Region.m in Sources */,
+				BC5C09A12A4C2065004D2D68 /* ListRegionsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

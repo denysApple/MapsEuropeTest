@@ -10,8 +10,8 @@
 
 @interface MapsManager : NSObject<NSXMLParserDelegate>
 
-@property (nonatomic, strong) NSMutableArray *maps;
-//@property (nonatomic, strong) NSMutableArray<Region *> *regions;
+@property (nonatomic, strong) NSMutableArray<Region *> *regions;
+@property (nonatomic, strong) Region *currentRegion;
 - (void)fetchMaps;
 
 @end

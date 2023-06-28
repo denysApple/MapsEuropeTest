@@ -13,6 +13,7 @@
     NSMutableString *currentValue;
 }
 
+
 - (void)fetchMaps {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"regions" ofType:@"xml"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
@@ -21,14 +22,26 @@
     [parser parse];
 }
 
+// MARK: NSXMLParserDelegate
+
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
-    self.maps = [[NSMutableArray alloc] init];
+    self.regions = [NSMutableArray new];
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
+    NSLog(@"Parsing: %@", attributeDict);
+//    if ([elementName isEqualToString:@"region"] && ![attributeDict[@"type"] isEqualToString:@"continent"]) {
     if ([elementName isEqualToString:@"region"]) {
-        region = [[NSMutableDictionary alloc] initWithDictionary:attributeDict];
-        currentValue = [[NSMutableString alloc] init];
+        Region *region = [[Region alloc] initWithAttributes:attributeDict];
+        if (self.currentRegion) {
+            [self.currentRegion addSubregion:region];
+        } else {
+            [self.regions addObject:region];
+        }
+        
+        if (![attributeDict[@"type"] isEqualToString:@"continent"]) {
+            self.currentRegion = region;
+        }
     }
 }
 
@@ -36,17 +49,14 @@
     [currentValue appendString:string];
 }
 
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    NSLog(@"parsing %@", region);
-    if ([elementName isEqualToString:@"region"] && region != NULL) {
-        [self.maps addObject:region];
-    }
-    region = nil;
-    currentValue = nil;
-}
+//- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+//    if ([elementName isEqualToString:@"region"]) {
+//        self.currentRegion = nil;  // Reset current region
+//    }
+//}
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    NSLog(@"Totally maps %lu", (unsigned long)self.maps.count);
+    NSLog(@"Finished parsing XML, found %lu regions.", (unsigned long)self.regions.count);
 }
 
 @end

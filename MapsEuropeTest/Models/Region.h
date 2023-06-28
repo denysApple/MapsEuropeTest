@@ -10,6 +10,7 @@
 
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *displayName;
 @property (nonatomic, strong) NSString *translate;
 @property (nonatomic, strong) NSString *innerDownloadSuffix;
 @property (nonatomic, strong) NSString *boundary;

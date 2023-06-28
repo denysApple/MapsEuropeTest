@@ -1,33 +1,32 @@
 //
-//  ViewController.m
+//  ListRegionsController.m
 //  MapsEuropeTest
 //
-//  Created by Denys on 24.06.2023.
+//  Created by Denys on 28.06.2023.
 //
 
-#import "ListMapsController.h"
+#import "ListRegionsController.h"
 #import <UIKit/UIKit.h>
 #import "UIColors.h"
+#import "CapitalizeFirstLetter.h"
 
 
-@implementation ListMapsController
+@implementation ListRegionsController
 
-
-- (instancetype)init {
+- (instancetype)initWithRegion:(Region *)region {
     self = [super init];
+    if (self) {
+        self.selectedRegion = region;
+    }
     self.tableView = [[UITableView alloc] initWithFrame: self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-    self.title = @"Download maps";
+    self.title = [self.selectedRegion.name stringByCapitalizingFirstLetter];
     self.navigationController.navigationBar.prefersLargeTitles = true;
     self.navigationController.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAlways;
     self.navigationController.view.backgroundColor = [UIColors mainColor];
     self.tableView.backgroundColor = [UIColors backgroundColor];
-    
-    self.mapsManager = [[MapsManager alloc] init];
-    [self.mapsManager fetchMaps];
-    [self.tableView reloadData];
     return self;
 }
 
@@ -39,13 +38,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return self.mapsManager.maps.count;
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.mapsManager.maps.count;
+    return self.selectedRegion.subregions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,8 +53,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    NSString *regionName = self.selectedRegion.subregions[indexPath.row].name;
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Row %@", self.mapsManager.maps[indexPath.row]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [regionName stringByCapitalizingFirstLetter]];
     
     return cell;
 }

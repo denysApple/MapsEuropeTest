@@ -6,7 +6,7 @@
 //
 
 #import "SceneDelegate.h"
-#import "ListMapsController.h"
+#import "ListCountriesController.h"
 
 @interface SceneDelegate ()
 
@@ -21,7 +21,7 @@
     self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
     
     // Create the MyTableViewController
-    ListMapsController *viewController = [[ListMapsController alloc] init];
+    ListCountriesController *viewController = [[ListCountriesController alloc] init];
     
     // Create a UINavigationController with MyTableViewController as its root view controller
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
