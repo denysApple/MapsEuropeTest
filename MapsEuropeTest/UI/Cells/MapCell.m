@@ -77,6 +77,7 @@ NSString * const MapCellIdentifier = @"MapCellIdentifier";
 - (void)prepareForReuse {
     [super prepareForReuse];
     [self.rightImageView setEnabled:YES];
+    [self.progressView setHidden:YES];
 }
 
 - (void)buttonClicked:(UIButton *)sender {
