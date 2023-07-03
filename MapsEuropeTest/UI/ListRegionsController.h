@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "MapsManager.h"
 #import "NetworkManager.h"
+#import "StorageService.h"
 
 @interface ListRegionsController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 

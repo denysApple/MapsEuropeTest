@@ -74,9 +74,14 @@ NSString * const MapCellIdentifier = @"MapCellIdentifier";
     [self.progressView setHidden:YES];
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self.rightImageView setEnabled:YES];
+}
+
 - (void)buttonClicked:(UIButton *)sender {
     NSURL *url = _selectedRegion.url;
-    if (url != nil && _networkManager.isBusy == false) {
+    if (![_networkManager.storageManager.urls containsObject:url] && _selectedRegion.subregions.count <= 0 && url != nil && _networkManager.isBusy == false) {
         [self.progressView setHidden:NO];
         NSLog(@"Clicked to download %@", _selectedRegion.url);
         [_networkManager downloadFileFromURL:url withProgress:^(double progress) {
@@ -84,6 +89,7 @@ NSString * const MapCellIdentifier = @"MapCellIdentifier";
             // 'progress' is a value between 0.0 and 1.0 representing the progress of the download.
             // You can use this to update a progress bar or other UI element.
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.rightImageView setImage:nil forState:UIControlStateNormal];
                 [self.progressView setHidden:NO];
                 NSLog(@"progress %f", progress);
                 self.progressView.progress = progress;
@@ -93,27 +99,38 @@ NSString * const MapCellIdentifier = @"MapCellIdentifier";
             // 'location' is the URL where the downloaded file can be found.
             // 'error' is an NSError object that will be non-nil if an error occurred.
             [self.progressView setHidden:YES];
+            [self showDownloaded];
             if (error) {
                 NSLog(@"Download failed with error: %@", error.localizedDescription);
             } else {
                 NSLog(@"Download complete. File located at: %@", location);
             }
         }];
-
     }
 }
 
 -(void)updateUI:(Region *)region {
+    NSURL *url = _selectedRegion.url;
     _selectedRegion = region;
     self.leftImageView.image = [UIImage imageNamed:@"ic_custom_map"];
     self.mainLabel.text = [NSString stringWithFormat:@"%@", [region.displayName stringByCapitalizingFirstLetter]];
-    if ([region.map.lowercaseString isEqualToString:@"yes"] || [region.type isEqualToString:@"map"] ) {
-        [self.rightImageView setImage:[UIImage imageNamed:@"ic_custom_dowload"] forState:UIControlStateNormal];
+    if ([_networkManager.storageManager.urls containsObject:url]) {
+        [self showDownloaded];
     } else if (region.subregions.count > 0) {
         [self.rightImageView setImage:[UIImage imageNamed:@"ic_custom_chevron"] forState:UIControlStateNormal];
+        [self.rightImageView setEnabled:NO];
+        
+    } else if ([region.map.lowercaseString isEqualToString:@"yes"] || [region.type isEqualToString:@"map"] ) {
+        [self.rightImageView setImage:[UIImage imageNamed:@"ic_custom_dowload"] forState:UIControlStateNormal];
+        
     } else {
         [self.rightImageView setImage:nil forState:UIControlStateNormal];
     }
+}
+
+-(void)showDownloaded {
+    [self.rightImageView setImage:[UIImage systemImageNamed:@"checkmark"] forState:UIControlStateNormal];
+    [self.rightImageView setEnabled:NO];
 }
 
 @end

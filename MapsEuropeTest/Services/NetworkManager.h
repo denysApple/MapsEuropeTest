@@ -1,10 +1,12 @@
 // NetworkManager.h
 #import <Foundation/Foundation.h>
 #import "Region.h"
+#import "StorageService.h"
 
 @interface NetworkManager : NSObject <NSURLSessionDownloadDelegate>
 
 @property (nonatomic, strong) NSURLSession *session;
+@property (nonatomic, strong) StorageService *storageManager;
 
 @property (nonatomic, assign) BOOL isBusy;
 @property (nonatomic, copy) void(^progressBlock)(double progress);

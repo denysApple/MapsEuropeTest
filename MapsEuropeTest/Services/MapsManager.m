@@ -30,23 +30,13 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     if ([elementName isEqualToString:@"region"]) {
-        Region *region = [[Region alloc] initWithAttributes:attributeDict];
-        if (self.continentRegion) {
-            [region mergeWithParent:self.continentRegion];
-        }
-        [region mergeWithParent:self.parentRegion];
-        if (self.parentRegion && region.polyExtract == nil) {
-            [self.parentRegion addSubregion:region];
-        } else {
-            if (![region.type isEqualToString:@"continent"] && ![self.regions containsObject:region]) {
-                [self.regions addObject:region];
-            }
-        }
-        
-        if (![attributeDict[@"type"] isEqualToString:@"continent"] || region.polyExtract.length == 0) {
-            self.parentRegion = region;
-        } else if ([region.type isEqualToString:@"continent"]) {
-            self.continentRegion = region;
+        Region *new = [[Region alloc] initWithAttributes:attributeDict];
+        [_lastRegion addSubregion:new];
+        [new mergeWithParent:_lastRegion];
+        new.parentRegion = _lastRegion;
+        _lastRegion = new;
+        if (new.parentRegion == NULL) {
+            [self.regions addObject:new];
         }
     }
 }
@@ -56,22 +46,8 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    if (self.parentRegion == [self.regions lastObject]) {
-        self.parentRegion = nil;
-    } else {
-        for (Region *region in self.regions) {
-            if ([region.subregions containsObject:self.parentRegion]) {
-                self.parentRegion = region;
-                break;
-            } else {
-                for (Region *subregion in region.subregions) {
-                    if ([subregion.subregions containsObject:self.parentRegion]) {
-                        self.parentRegion = subregion;
-                        break;
-                    }
-                }
-            }
-        }
+    if ([elementName isEqualToString:@"region"]) {
+        _lastRegion = _lastRegion.parentRegion;
     }
 }
 

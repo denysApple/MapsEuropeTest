@@ -9,6 +9,7 @@
 #import "MapCell.h"
 #import "Region.h"
 #import "NetworkManager.h"
+#import "StorageService.h"
 
 extern NSString * const MapCellIdentifier;
 
@@ -23,5 +24,6 @@ extern NSString * const MapCellIdentifier;
 
 - (instancetype)initWithRegion:(Region *)region networkManager:(NetworkManager *)networkManager;
 -(void)updateUI:(Region *)region;
+-(void)showDownloaded;
 
 @end

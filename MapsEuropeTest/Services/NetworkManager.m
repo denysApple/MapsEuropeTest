@@ -18,6 +18,7 @@
         delegateQueue.name = @"com.mapsEuropeTestTask.networkqueue";
         delegateQueue.maxConcurrentOperationCount = 1;
         
+        self.storageManager = [[StorageService alloc] init];
         self.session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:delegateQueue];
     }
     return self;
@@ -49,6 +50,8 @@
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
     if (self.completionBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSURL *url = downloadTask.originalRequest.URL;
+            [self.storageManager saveURL:url];
             self.isBusy = false;
             self.completionBlock(location, nil);
         });

@@ -10,6 +10,7 @@
 		BC5C099E2A4C1F4A004D2D68 /* CapitalizeFirstLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C099D2A4C1F4A004D2D68 /* CapitalizeFirstLetter.m */; };
 		BC5C09A12A4C2065004D2D68 /* ListRegionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C09A02A4C2065004D2D68 /* ListRegionsController.m */; };
 		BC5C09A82A4C51DE004D2D68 /* MapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5C09A72A4C51DE004D2D68 /* MapCell.m */; };
+		BCAEE0B62A52D18F0081B9C5 /* StorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAEE0B52A52D18F0081B9C5 /* StorageService.m */; };
 		BCD870EE2A46FAAF0070459F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870ED2A46FAAF0070459F /* AppDelegate.m */; };
 		BCD870F12A46FAAF0070459F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870F02A46FAAF0070459F /* SceneDelegate.m */; };
 		BCD870F42A46FAAF0070459F /* ListCountriesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD870F32A46FAAF0070459F /* ListCountriesController.m */; };
@@ -32,6 +33,8 @@
 		BC5C09A22A4C5193004D2D68 /* MapsEuropeTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapsEuropeTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		BC5C09A62A4C51CF004D2D68 /* MapCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapCell.h; sourceTree = "<group>"; };
 		BC5C09A72A4C51DE004D2D68 /* MapCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapCell.m; sourceTree = "<group>"; };
+		BCAEE0B42A52D1860081B9C5 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		BCAEE0B52A52D18F0081B9C5 /* StorageService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorageService.m; sourceTree = "<group>"; };
 		BCD870E92A46FAAF0070459F /* MapsEuropeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapsEuropeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD870EC2A46FAAF0070459F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BCD870ED2A46FAAF0070459F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				BCD8710A2A4708190070459F /* NetworkManager.h */,
 				BCD8710E2A4710D20070459F /* MapsManager.m */,
 				BCD871152A4711DC0070459F /* MapsManager.h */,
+				BCAEE0B42A52D1860081B9C5 /* StorageService.h */,
+				BCAEE0B52A52D18F0081B9C5 /* StorageService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				BCD8710D2A470C810070459F /* UIColors.m in Sources */,
 				BCD870EE2A46FAAF0070459F /* AppDelegate.m in Sources */,
 				BC5C099E2A4C1F4A004D2D68 /* CapitalizeFirstLetter.m in Sources */,
+				BCAEE0B62A52D18F0081B9C5 /* StorageService.m in Sources */,
 				BCD870FF2A46FAB00070459F /* main.m in Sources */,
 				BCD871082A4707BE0070459F /* NetworkManager.m in Sources */,
 				BCD8710F2A4710D20070459F /* MapsManager.m in Sources */,

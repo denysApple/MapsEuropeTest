@@ -63,6 +63,8 @@
     if (region.subregions.count > 0) {
         ListRegionsController *viewController = [[ListRegionsController alloc] initWithRegion:region networkManager:_networkManager];
         [self.navigationController pushViewController:viewController animated:YES];
+    } else {
+        
     }
 }
 
